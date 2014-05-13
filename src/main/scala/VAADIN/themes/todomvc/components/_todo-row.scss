@@ -1,0 +1,129 @@
+$todo-row-checkmark-width: 43px;
+$todo-row-input-border-width: 1px;
+
+
+@mixin todo-row {
+	
+	.todo-row {
+    position: relative;
+    font-size: 24px;
+    border-bottom: 1px dotted #ccc;
+    
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    .v-checkbox input {
+      text-align: center;
+      width: 40px;
+      // auto, since non-WebKit browsers doesn't support input styling
+      height: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      // Mobile Safari
+      border: none;
+      @include appearance(none);
+      
+      background: none;
+      height: 40px;
+      
+      &:after {
+        content: '\2714';
+        // 40 + a couple of pixels visual adjustment
+        line-height: 43px;
+        font-size: 20px;
+        color: #d9d9d9;
+        text-shadow: 0 -1px 0 #bfbfbf;
+      }
+      
+      &:checked:after {
+        color: #85ada7;
+        text-shadow: 0 1px 0 #669991;
+        bottom: 1px;
+        position: relative;
+      }
+    }
+    
+    .v-label {
+      font: inherit;
+      white-space: pre;
+      word-break: break-word;
+      padding: 15px 60px 15px 15px;
+      margin-left: $todo-row-checkmark-width + $todo-row-input-border-width*2;
+      display: block;
+      line-height: 1.2;
+      @include transition(color 0.4s);
+      white-space: normal;
+    }
+    
+    &.completed .v-label {
+      color: #a9a9a9;
+      text-decoration: line-through;
+    }
+    
+    .destroy {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 10px;
+      bottom: 0;
+      width: 40px;
+      height: 40px;
+      margin: auto 0;
+      font-size: 22px;
+      color: #a88a8a;
+      @include transition(all 0.2s);
+
+      &:before {
+        content: '\2716';
+      }
+     
+      &:hover {
+        text-shadow: 0 0 1px #000,
+             0 0 10px rgba(199, 107, 107, 0.8);
+        @include transform( scale(1.3) );
+      }
+    }
+    
+    &:hover .destroy {
+      display: block;
+    }
+    
+    .v-textfield {
+      position: relative;
+      margin: 0;
+      width: 100%;
+      font-size: 24px;
+      font-family: inherit;
+      line-height: 1.4em;
+      border: 0;
+      outline: none;
+      color: inherit;
+      padding: 6px !important;
+      border: $todo-row-input-border-width solid #999;
+      box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+      @include box-sizing(border-box);
+      @include font-smoothing(antialiased);
+      display: none;
+    }
+    
+    &.editing {
+      .v-checkbox,
+      .v-label,
+      .destroy {
+        display: none;
+      }
+    }
+    
+    &.editing .v-textfield {
+      display: block;
+      width: $main-layout-width - $todo-row-checkmark-width;
+      padding: 13px 17px 12px 17px !important;
+      margin: 0 0 0 43px;
+    }
+  }
+	
+}

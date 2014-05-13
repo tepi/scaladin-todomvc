@@ -1,0 +1,39 @@
+// Import Vaadin Base theme
+@import "../base/base";
+
+// Import utility mixins
+@import "util/mixins";
+
+// Import variables
+@import "components/variables";
+
+// Import component mixins
+@import "components/resets";
+@import "components/main";
+@import "components/todo-row";
+@import "components/footer";
+
+
+@mixin todomvc {
+	
+	// Include Vaadin Base styles
+  @include base;
+  
+  
+  // Resets
+  @include resets;
+  
+  
+	// Styles for the main layout and all common parts, 
+	// such as the title, new-todo input and toggle-all button
+	@include main;
+  
+  
+  // Individual todo item styles
+	@include todo-row;
+	
+	
+	// Footer (todo count, filters, clear completed and info label)
+	@include footer;
+
+}

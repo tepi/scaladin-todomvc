@@ -1,0 +1,44 @@
+@mixin resets {
+	
+	button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: inherit;
+    color: inherit;
+    @include appearance(none);
+  }
+  
+  button,
+  input[type="checkbox"] {
+    outline: none;
+  }
+	
+	
+	// Override Vaadin defaults
+  
+  .v-csslayout {
+    overflow: visible;
+  }
+  
+  .v-widget {
+    font-size: $font-size;
+    line-height: $line-height;
+  }
+  
+  .v-nativebutton {
+    line-height: normal;
+    
+    .v-nativebutton-caption {
+      vertical-align: baseline;
+    }
+  }
+  
+  .v-ui {
+    overflow: visible;
+  }
+  
+}

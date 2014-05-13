@@ -1,0 +1,142 @@
+@mixin body-styles {
+  .v-generated-body {
+	  font: $font-size 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	  line-height: $line-height;
+	  background: #eaeaea url('../img/bg.png');
+	  color: $font-color;
+	  @include font-smoothing(antialiased);
+	  overflow: auto;
+	  height: auto;
+	}
+}
+
+
+@mixin main {
+	
+	#todoapp {
+    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    position: relative;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2),
+                0 25px 50px 0 rgba(0, 0, 0, 0.15);
+    width: $main-layout-width;
+    margin: 130px auto 40px auto;
+    @include box-sizing(content-box);
+
+    &:before {
+      content: '';
+      border-left: 1px solid #f5d6d6;
+      border-right: 1px solid #f5d6d6;
+      width: 2px;
+      position: absolute;
+      top: 0;
+      left: 40px;
+      height: 100%;
+    }
+  }
+  
+  h1 {
+    position: absolute;
+    top: -120px;
+    width: 100%;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+    color: #b3b3b3;
+    color: rgba(255, 255, 255, 0.3);
+    text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+    @include text-rendering(optimizeLegibility);
+    
+    // Override Vaadin default
+    line-height: inherit !important;
+  }
+  
+  #header {
+    display: block;
+    padding-top: 15px;
+    border-radius: inherit;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 15px;
+      z-index: 2;
+      border-bottom: 1px solid #6c615c;
+      @include linear-gradient(rgba(132, 110, 100, 0.8), rgba(101, 84, 76, 0.8), $fallback: #8d7d77);
+      border-top-left-radius: 1px;
+      border-top-right-radius: 1px;
+    }
+  }
+  
+  #new-todo {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    font-size: 24px;
+    font-family: inherit;
+    line-height: 1.4em;
+    border: 0;
+    outline: none;
+    color: inherit;
+    padding: 6px;
+    border: 1px solid #999;
+    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    @include box-sizing(border-box);
+    @include font-smoothing(antialiased);
+    
+    padding: 16px 16px 16px 60px !important;
+    border: none;
+    background: rgba(0, 0, 0, 0.02);
+    z-index: 2;
+    box-shadow: none;
+
+    &.v-textfield-prompt {
+      color: #a9a9a9;
+    }
+  }
+  
+  #main {
+    position: relative;
+    z-index: 2;
+    border-top: 1px dotted #adadad;
+  }
+  
+  #toggle-all {
+    input {
+      position: absolute;
+      width: 40px;
+      text-align: center;
+      /* Mobile Safari */
+      border: none;
+      
+      top: -56px;
+      left: -15px;
+      width: 65px;
+      height: 41px;
+      @include transform( rotate(90deg) );
+      @include appearance(none);
+
+      &:before {
+        content: '\00bb';
+        font-size: 28px;
+        color: #d9d9d9;
+        padding: 0 25px 7px;
+      }
+      
+      &:checked:before {
+        color: #737373;
+      }
+    }
+    
+    label {
+      display: none;
+    }
+  }
+	
+}

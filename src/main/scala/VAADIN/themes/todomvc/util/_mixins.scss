@@ -1,0 +1,49 @@
+@mixin font-smoothing ($type: antialiased) {
+	-webkit-font-smoothing: $type;
+     -moz-font-smoothing: $type;
+      -ms-font-smoothing: $type;
+       -o-font-smoothing: $type;
+          font-smoothing: $type;
+}
+
+@mixin text-rendering ($type: optimizeLegibility) {
+	-webkit-text-rendering: $type;
+     -moz-text-rendering: $type;
+      -ms-text-rendering: $type;
+       -o-text-rendering: $type;
+          text-rendering: $type;
+}
+
+@mixin appearance ($a: none) {
+	-webkit-appearance: $a;
+      -ms-appearance: $a;
+       -o-appearance: $a;
+          appearance: $a;
+}
+
+@mixin linear-gradient ($start: null, $end: null, $fallback: null) {
+	// If fallback is null, this will be omitted from output, so no need for @if
+  background-color: $fallback;
+  
+	background: -webkit-gradient(linear, left top, left bottom, from($start), to($end));
+	background: -webkit-linear-gradient(top, $start, $end);
+	background: linear-gradient(top, $start, $end);
+}
+
+@mixin box-sizing ($bs) {
+	-moz-box-sizing: $bs;
+   -ms-box-sizing: $bs;
+    -o-box-sizing: $bs;
+       box-sizing: $bs;
+}
+
+@mixin transform ($t) {
+	-webkit-transform: $t;
+      -ms-transform: $t;
+          transform: $t;
+}
+
+@mixin transition ($t) {
+  -webkit-transition: $t;
+          transition: $t;
+}
