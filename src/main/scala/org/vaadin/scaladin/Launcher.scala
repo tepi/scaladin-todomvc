@@ -11,7 +11,8 @@ object Launcher {
       root.setDescriptor("src/main/webapp/WEB-INF/web.xml");
       root.setResourceBase("target/scala-2.10/classes");
       root.setParentLoaderPriority(true);
-
+      root.setInitParameter("heartbeatInterval", "5")
+      root.setInitParameter("closeIdleSessions", "true")
       println("Starting Jetty Server...")
       val s = new Server(9000)
       s.setHandler(root);

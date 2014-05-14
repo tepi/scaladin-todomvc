@@ -84,7 +84,7 @@ class TodoPresenter(val view: TodoView) extends org.vaadin.scaladin.todomvc.view
     reset
   }
 
-  private def reset {
+  def reset {
     // Clear everything
     todos.clear
     view.clear
