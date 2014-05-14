@@ -33,6 +33,7 @@ class TodoPresenter(val view: TodoView) extends org.vaadin.scaladin.todomvc.view
     if (!caption.isEmpty) {
       todos += new Todo(UUID.randomUUID().toString(), caption, false)
       persistence.add(todos.last, dbkey)
+      view.clearNewTodo
       reset
     }
   }

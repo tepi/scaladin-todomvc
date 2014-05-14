@@ -92,7 +92,6 @@ class TodoViewImpl() extends CssLayout with TodoView {
 
   // Clears/resets the whole view
   override def clear() {
-    newTodo.value_=("")
     todos.clear
     main.removeAllComponents
     main.add(toggleAll)
