@@ -23,7 +23,7 @@ class PersistenceHandler {
   // Initializes the Todo table in DB if needed
   db.withSession { implicit session =>
     StaticQuery.updateNA("CREATE TABLE IF NOT EXISTS " +
-      "TODOS(ID VARCHAR(255) PRIMARY KEY, " +
+      "TODOS(ID BIGINT PRIMARY KEY AUTO_INCREMENT, " +
       "UUID VARCHAR(255), " +
       "TODO VARCHAR(255), " +
       "COMPLETED BOOLEAN);").execute
